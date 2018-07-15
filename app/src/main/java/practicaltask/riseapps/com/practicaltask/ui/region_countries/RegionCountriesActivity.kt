@@ -10,7 +10,7 @@ import practicaltask.riseapps.com.practicaltask.R
 import practicaltask.riseapps.com.practicaltask.core.App
 import practicaltask.riseapps.com.practicaltask.network.CountriesApi
 import practicaltask.riseapps.com.practicaltask.network.model.CountryData
-import practicaltask.riseapps.com.practicaltask.ui.adapter.MenuAdapter
+import practicaltask.riseapps.com.practicaltask.ui.adapter.CountriesAdapter
 import practicaltask.riseapps.com.practicaltask.ui.base.BaseActivity
 
 class RegionCountriesActivity : BaseActivity() {
@@ -50,11 +50,7 @@ class RegionCountriesActivity : BaseActivity() {
     }
 
     private fun fillRecyclerByCountries() {
-        val tmpList = ArrayList<String>()
-        for (country in countriesList) {
-            tmpList.add(country.name)
-        }
         rvCountriesList.layoutManager = LinearLayoutManager(this)
-        rvCountriesList.adapter = MenuAdapter(tmpList, null)
+        rvCountriesList.adapter = CountriesAdapter(countriesList)
     }
 }

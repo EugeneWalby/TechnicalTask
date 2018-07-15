@@ -41,9 +41,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
     }
 
     class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tvRegionName;
+        private TextView tvRegionName;
 
-        MenuViewHolder(final View itemView) {
+        MenuViewHolder(View itemView) {
             super(itemView);
             tvRegionName = itemView.findViewById(R.id.tvRegionName);
             itemView.setOnClickListener(this);
