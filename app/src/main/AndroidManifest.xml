@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="practicaltask.riseapps.com.practicaltask">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    
     <application
         android:name=".core.App"
         android:allowBackup="true"
@@ -19,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.menu.MenuActivity" />
+        <activity android:name=".ui.region_countries.RegionCountriesActivity" />
     </application>
 
 </manifest>
