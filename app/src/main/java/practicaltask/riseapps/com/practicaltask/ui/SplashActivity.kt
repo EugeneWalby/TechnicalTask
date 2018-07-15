@@ -6,6 +6,7 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_splash.*
 import practicaltask.riseapps.com.practicaltask.R
 import practicaltask.riseapps.com.practicaltask.ui.base.BaseActivity
+import practicaltask.riseapps.com.practicaltask.ui.menu.MenuActivity
 
 
 class SplashActivity : BaseActivity() {
@@ -26,7 +27,7 @@ class SplashActivity : BaseActivity() {
         pbLoading.visibility = View.VISIBLE
         Handler().postDelayed(
                 {
-                    moveToScreen(MainActivity::class.java)
+                    moveToScreen(MenuActivity::class.java)
                     pbLoading.visibility = View.GONE
                 },
                 DELAY_BEFORE_MOVE)
