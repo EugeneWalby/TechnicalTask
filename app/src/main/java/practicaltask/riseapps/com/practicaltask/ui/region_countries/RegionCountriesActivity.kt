@@ -8,16 +8,15 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_region_countries.*
 import practicaltask.riseapps.com.practicaltask.R
 import practicaltask.riseapps.com.practicaltask.core.App
-import practicaltask.riseapps.com.practicaltask.network.CountriesApi
 import practicaltask.riseapps.com.practicaltask.network.model.CountryData
 import practicaltask.riseapps.com.practicaltask.ui.adapter.CountriesAdapter
 import practicaltask.riseapps.com.practicaltask.ui.base.BaseActivity
 
-class RegionCountriesActivity : BaseActivity() {
-    private val countriesApi by lazy {
-        CountriesApi.create()
+class RegionCountriesActivity : BaseActivity(), RegionCountriesView {
+    companion object {
+        private val lastRegion = App.getInstance().preferences.lastRegion
+        private val regionCountriesPresenter = RegionCountriesPresenter()
     }
-    private val countriesList: ArrayList<CountryData> = ArrayList()
 
     override fun provideLayout(): Int {
         return R.layout.activity_region_countries
@@ -25,32 +24,22 @@ class RegionCountriesActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadCountriesByRegion(App.getInstance().preferences.lastRegion)
+        regionCountriesPresenter.setView(this)
+        showProgress()
+        regionCountriesPresenter.loadCountriesDataByRegion(lastRegion)
     }
 
-    private fun loadCountriesByRegion(regionName: String) {
+    override fun showProgress() {
         pbProcessing.visibility = View.VISIBLE
-        countriesApi.getCountriesByRegion(regionName)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { result ->
-                            fillCountriesList(result)
-                            fillRecyclerByCountries()
-                            pbProcessing.visibility = View.GONE
-                        },
-                        {
-                            pbProcessing.visibility = View.GONE
-                        }
-                )
     }
 
-    private fun fillCountriesList(countriesResultList: List<CountryData>) {
-        countriesList.addAll(countriesResultList)
+    override fun hideProgress() {
+        pbProcessing.visibility = View.GONE
     }
 
-    private fun fillRecyclerByCountries() {
+    override fun fillRecyclerByCountriesData(countriesList: List<CountryData>) {
         rvCountriesList.layoutManager = LinearLayoutManager(this)
         rvCountriesList.adapter = CountriesAdapter(countriesList)
+        hideProgress()
     }
 }

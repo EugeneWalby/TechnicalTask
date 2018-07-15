@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimens8"
     android:background="@drawable/anim_ripple"
     android:orientation="vertical">
 
@@ -11,7 +12,6 @@
         style="@style/Grey.14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimens8"
         android:gravity="center"
         tools:text="Country" />
 
