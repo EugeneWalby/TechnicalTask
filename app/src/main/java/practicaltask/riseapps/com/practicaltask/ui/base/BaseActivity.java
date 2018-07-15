@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import practicaltask.riseapps.com.practicaltask.ui.SplashActivity;
 
+
 @SuppressLint("Registered")
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
     protected abstract int provideLayout();
