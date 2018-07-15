@@ -17,7 +17,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
     private List<String> regionsData;
     private OnMenuItemClickListener onItemClicked;
 
-    public MenuAdapter(@NonNull final List<String> regionsData, @NonNull final OnMenuItemClickListener onItemClicked) {
+    public MenuAdapter(@NonNull final List<String> regionsData, final OnMenuItemClickListener onItemClicked) {
         this.regionsData = new ArrayList<>();
         this.regionsData.addAll(regionsData);
         this.onItemClicked = onItemClicked;
@@ -41,9 +41,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
     }
 
     class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tvRegionName;
+        private TextView tvRegionName;
 
-        MenuViewHolder(final View itemView) {
+        MenuViewHolder(View itemView) {
             super(itemView);
             tvRegionName = itemView.findViewById(R.id.tvRegionName);
             itemView.setOnClickListener(this);

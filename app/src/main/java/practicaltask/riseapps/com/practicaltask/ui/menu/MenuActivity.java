@@ -16,6 +16,7 @@ import practicaltask.riseapps.com.practicaltask.ui.MainActivity;
 import practicaltask.riseapps.com.practicaltask.ui.adapter.MenuAdapter;
 import practicaltask.riseapps.com.practicaltask.ui.base.BaseActivity;
 import practicaltask.riseapps.com.practicaltask.ui.callback.OnMenuItemClickListener;
+import practicaltask.riseapps.com.practicaltask.ui.region_countries.RegionCountriesActivity;
 
 public class MenuActivity extends BaseActivity implements MenuView, OnMenuItemClickListener {
     @BindView(R.id.rvMenu)
@@ -45,7 +46,7 @@ public class MenuActivity extends BaseActivity implements MenuView, OnMenuItemCl
     @Override
     public void onMenuItemClicked(View v, String itemName) {
         App.getInstance().getPreferences().setLastRegion(itemName);
-        moveToScreen(MainActivity.class);
+        moveToScreen(RegionCountriesActivity.class);
     }
 
     @Override

@@ -7,7 +7,7 @@ import practicaltask.riseapps.com.practicaltask.dagger.DaggerAppComponent;
 import practicaltask.riseapps.com.practicaltask.dagger.module.AppModule;
 import practicaltask.riseapps.com.practicaltask.dagger.module.GlobalModule;
 import practicaltask.riseapps.com.practicaltask.dagger.module.NetworkModule;
-import practicaltask.riseapps.com.practicaltask.storage.preferences.BasePreferences;
+import practicaltask.riseapps.com.practicaltask.network.CountriesApi;
 import practicaltask.riseapps.com.practicaltask.storage.preferences.PreferencesImpl;
 
 public class App extends Application {

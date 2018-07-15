@@ -13,8 +13,16 @@
         <item name="android:color">@color/colorBlack</item>
     </style>
 
+    <style name="Grey">
+        <item name="android:color">@color/colorGrey</item>
+    </style>
+
     <!-- Text size styles -->
     <style name="Black.16sp">
         <item name="android:textSize">@dimen/text16</item>
+    </style>
+
+    <style name="Grey.14">
+        <item name="android:textSize">@dimen/text14</item>
     </style>
 </resources>

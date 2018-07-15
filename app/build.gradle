@@ -12,6 +12,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled = true
+
+        buildConfigField "String", "BASE_URL", "\"https://restcountries.eu/rest/v2/\""
     }
     buildTypes {
         release {
