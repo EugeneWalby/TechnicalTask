@@ -10,7 +10,6 @@ data class CountryData(
         @SerializedName("callingCodes") val callingCodes: List<Int>,
         @SerializedName("capital") val capital: String,
         @SerializedName("altSpellings") val altSpellings: List<String>,
-        @SerializedName("region") val region: String,
         @SerializedName("subregion") val subregion: String,
         @SerializedName("population") val population: Int,
         @SerializedName("latlng") val latlng: List<Double>,
