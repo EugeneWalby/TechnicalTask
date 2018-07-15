@@ -3,8 +3,6 @@ package practicaltask.riseapps.com.practicaltask.ui.region_countries
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_region_countries.*
 import practicaltask.riseapps.com.practicaltask.R
 import practicaltask.riseapps.com.practicaltask.core.App
