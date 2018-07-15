@@ -14,10 +14,12 @@ import practicaltask.riseapps.com.practicaltask.R;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder> {
     private List<String> regionsData;
+    private View.OnClickListener onItemClicked;
 
-    public MenuAdapter(@NonNull final List<String> regionsData) {
+    public MenuAdapter(@NonNull final List<String> regionsData, @NonNull final View.OnClickListener onItemClicked) {
         this.regionsData = new ArrayList<>();
         this.regionsData.addAll(regionsData);
+        this.onItemClicked = onItemClicked;
     }
 
     @NonNull
@@ -43,6 +45,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         MenuViewHolder(final View itemView) {
             super(itemView);
             tvRegionName = itemView.findViewById(R.id.tvRegionName);
+            itemView.setOnClickListener(onItemClicked);
         }
     }
 }

@@ -27,7 +27,7 @@ class SplashActivity : BaseActivity() {
         pbLoading.visibility = View.VISIBLE
         Handler().postDelayed(
                 {
-                    moveToScreen(MenuActivity::class.java)
+                    moveToScreenWithoutBack(MenuActivity::class.java)
                     pbLoading.visibility = View.GONE
                 },
                 DELAY_BEFORE_MOVE)
