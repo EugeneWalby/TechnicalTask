@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">PracticalTask</string>
+
+    <string-array name="regionNames">
+        <item>Africa</item>
+        <item>Americas</item>
+        <item>Asia</item>
+        <item>Europe</item>
+        <item>Oceania</item>
+    </string-array>
 </resources>

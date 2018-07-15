@@ -1,4 +1,4 @@
-package practicaltask.riseapps.com.practicaltask;
+package practicaltask.riseapps.com.practicaltask.core;
 
 import android.app.Application;
 
@@ -7,12 +7,15 @@ import practicaltask.riseapps.com.practicaltask.dagger.DaggerAppComponent;
 import practicaltask.riseapps.com.practicaltask.dagger.module.AppModule;
 import practicaltask.riseapps.com.practicaltask.dagger.module.GlobalModule;
 import practicaltask.riseapps.com.practicaltask.dagger.module.NetworkModule;
+import practicaltask.riseapps.com.practicaltask.storage.preferences.BasePreferences;
+import practicaltask.riseapps.com.practicaltask.storage.preferences.PreferencesImpl;
 
-public class PracticalTaskApp extends Application {
-    private static PracticalTaskApp instance;
+public class App extends Application {
+    private static App instance;
     private AppComponent appComponent;
+    private PreferencesImpl preferences;
 
-    public static PracticalTaskApp getInstance() {
+    public static App getInstance() {
         return instance;
     }
 
@@ -26,6 +29,7 @@ public class PracticalTaskApp extends Application {
         instance = this;
 
         initializeDagger();
+        initPreferences();
     }
 
     private void initializeDagger() {
@@ -34,5 +38,13 @@ public class PracticalTaskApp extends Application {
                 .networkModule(new NetworkModule())
                 .globalModule(new GlobalModule())
                 .build();
+    }
+
+    private void initPreferences() {
+        preferences = new PreferencesImpl(this);
+    }
+
+    public PreferencesImpl getPreferences() {
+        return preferences;
     }
 }
