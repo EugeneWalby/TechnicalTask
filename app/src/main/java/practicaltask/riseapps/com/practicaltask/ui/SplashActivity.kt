@@ -7,6 +7,7 @@ import kotlinx.android.synthetic.main.activity_splash.*
 import practicaltask.riseapps.com.practicaltask.R
 import practicaltask.riseapps.com.practicaltask.ui.base.BaseActivity
 
+
 class SplashActivity : BaseActivity() {
     companion object {
         private const val DELAY_BEFORE_MOVE = 2000L
