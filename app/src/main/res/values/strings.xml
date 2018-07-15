@@ -8,4 +8,7 @@
         <item>Europe</item>
         <item>Oceania</item>
     </string-array>
+
+    <string name="msgCheckInternetConnection">Please, check your network connection.</string>
+    <string name="msgNoInternetConnection">There is no internet connection</string>
 </resources>

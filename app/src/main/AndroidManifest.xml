@@ -3,6 +3,7 @@
     package="practicaltask.riseapps.com.practicaltask">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".core.App"
@@ -23,6 +24,11 @@
         </activity>
         <activity android:name=".ui.menu.MenuActivity" />
         <activity android:name=".ui.region_countries.RegionCountriesActivity" />
+        <receiver android:name=".core.NetworkChangeReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
