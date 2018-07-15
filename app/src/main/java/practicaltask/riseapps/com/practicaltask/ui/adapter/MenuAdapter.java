@@ -11,12 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import practicaltask.riseapps.com.practicaltask.R;
+import practicaltask.riseapps.com.practicaltask.ui.callback.OnMenuItemClickListener;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder> {
     private List<String> regionsData;
-    private View.OnClickListener onItemClicked;
+    private OnMenuItemClickListener onItemClicked;
 
-    public MenuAdapter(@NonNull final List<String> regionsData, @NonNull final View.OnClickListener onItemClicked) {
+    public MenuAdapter(@NonNull final List<String> regionsData, @NonNull final OnMenuItemClickListener onItemClicked) {
         this.regionsData = new ArrayList<>();
         this.regionsData.addAll(regionsData);
         this.onItemClicked = onItemClicked;
@@ -39,13 +40,18 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         return regionsData.size();
     }
 
-    class MenuViewHolder extends RecyclerView.ViewHolder {
+    class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvRegionName;
 
         MenuViewHolder(final View itemView) {
             super(itemView);
             tvRegionName = itemView.findViewById(R.id.tvRegionName);
-            itemView.setOnClickListener(onItemClicked);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onItemClicked.onMenuItemClicked(v, regionsData.get(this.getAdapterPosition()));
         }
     }
 }
